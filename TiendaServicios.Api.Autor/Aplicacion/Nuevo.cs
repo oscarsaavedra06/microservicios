@@ -11,7 +11,7 @@ namespace TiendaServicios.Api.Autor.Aplicacion
 {
     public class Nuevo
     {
-
+        //comentario
         public class Ejecuta : IRequest
         {
             public string Nombre { get; set; }

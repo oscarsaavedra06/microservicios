@@ -1,12 +1,10 @@
 ﻿using MediatR;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using TiendaServicios.Api.Autor.Modelo;
 using TiendaServicios.Api.Autor.Persistencia;
-
+using FluentValidation;
 namespace TiendaServicios.Api.Autor.Aplicacion
 {
     public class Nuevo
@@ -17,6 +15,17 @@ namespace TiendaServicios.Api.Autor.Aplicacion
             public string Nombre { get; set; }
             public string Apellido { get; set; }
             public DateTime? FechaNacimiento { get; set; }
+
+        }
+
+        public class EjecutaValidacion : AbstractValidator<Ejecuta>
+        {
+            public EjecutaValidacion()
+            {
+
+                RuleFor(x => x.Nombre).NotEmpty();
+                RuleFor(x => x.Apellido).NotEmpty();
+            }
 
         }
 
